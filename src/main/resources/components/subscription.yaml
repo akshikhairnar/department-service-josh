@@ -1,0 +1,14 @@
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: employeepubsub
+spec:
+  type: pubsub.kafka
+  version: v1
+  topic: test
+  routes:
+    default: /notify
+  pubsubname: employeepubsub
+scopes:
+  - employee
+  - department
