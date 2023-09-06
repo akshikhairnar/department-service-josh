@@ -17,6 +17,8 @@ public class DaprService {
     @Autowired
     private DaprClient daprClient;
 
+
+
     public Mono<Void> getNotification(CloudEvent<String> cloudEvent){
         //daprClient.subscribeConfiguration();
       return Mono.fromRunnable(()->{
