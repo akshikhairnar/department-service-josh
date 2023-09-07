@@ -28,17 +28,6 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
-    @Autowired
-    private DaprService daprService;
-
-
-    @Topic(name = "testdapr", pubsubName = "employeepubsub")
-    @PostMapping(value = "/notify",consumes = MediaType.ALL_VALUE)
-    public Mono<Void> getNotification(@RequestBody(required = false) CloudEvent<String> cloudEvent) {
-        log.info("Department get notification method call");
-       return daprService.getNotification(cloudEvent);
-    }
-
     @GetMapping
     public ResponseEntity<List<DepartmentDTO>> getAllDepartments() {
         List<Department> departments = departmentService.getAllDepartment();
